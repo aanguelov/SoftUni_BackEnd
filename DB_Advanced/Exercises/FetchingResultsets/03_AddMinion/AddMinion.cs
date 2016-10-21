@@ -63,12 +63,12 @@ namespace _03_AddMinion
 
         private static int GetVillainId(string villainName, SqlConnection connection)
         {
-            string selectTownByName = "SELECT VillainId " +
+            string getVillainByIdStr = "SELECT VillainId " +
                                         "FROM Villains " +
                                        "WHERE VillainName = @villainName";
             int result = 0;
 
-            SqlCommand command = new SqlCommand(selectTownByName, connection);
+            SqlCommand command = new SqlCommand(getVillainByIdStr, connection);
             command.Parameters.AddWithValue("@villainName", villainName);
             result = (int)command.ExecuteScalar();
 
@@ -77,12 +77,12 @@ namespace _03_AddMinion
 
         private static int GetMinionId(string minionName, SqlConnection connection)
         {
-            string selectTownByName = "SELECT MinionId " +
+            string getMinionById = "SELECT MinionId " +
                                         "FROM Minions " +
                                        "WHERE Name = @minionName";
             int result = 0;
 
-            SqlCommand command = new SqlCommand(selectTownByName, connection);
+            SqlCommand command = new SqlCommand(getMinionById, connection);
             command.Parameters.AddWithValue("@minionName", minionName);
             result = (int)command.ExecuteScalar();
 
@@ -91,12 +91,12 @@ namespace _03_AddMinion
 
         private static int GetTownId(string minionTown, SqlConnection connection)
         {
-            string selectTownByName = "SELECT TownId " +
+            string getTownByIdStr = "SELECT TownId " +
                                         "FROM Towns " +
                                        "WHERE TownName = @minionTown";
             int result = 0;
 
-            SqlCommand command = new SqlCommand(selectTownByName, connection);
+            SqlCommand command = new SqlCommand(getTownByIdStr, connection);
             command.Parameters.AddWithValue("@minionTown", minionTown);
             result = (int)command.ExecuteScalar();
 
@@ -105,10 +105,10 @@ namespace _03_AddMinion
 
         private static void AddMinionToDatabase(string minionName, string minionAge, int townId, SqlConnection connection)
         {
-            string insertTown = "INSERT INTO Minions (Name, Age, TownId) " +
+            string insertMinionToDbStr = "INSERT INTO Minions (Name, Age, TownId) " +
                                 "VALUES (@minionName, @minionAge, @townId)";
 
-            SqlCommand command = new SqlCommand(insertTown, connection);
+            SqlCommand command = new SqlCommand(insertMinionToDbStr, connection);
             command.Parameters.AddWithValue("@minionName", minionName);
             command.Parameters.AddWithValue("@minionAge", minionAge);
             command.Parameters.AddWithValue("@townId", townId);
@@ -117,12 +117,12 @@ namespace _03_AddMinion
 
         private static bool CheckIfMinionExists(string minionName, SqlConnection connection)
         {
-            string selectTownByName = "SELECT COUNT(*) " +
+            string checkMinionStr = "SELECT COUNT(*) " +
                                         "FROM Minions " +
                                        "WHERE Name = @minionName";
             int result = 0;
 
-            SqlCommand command = new SqlCommand(selectTownByName, connection);
+            SqlCommand command = new SqlCommand(checkMinionStr, connection);
             command.Parameters.AddWithValue("@minionName", minionName);
             result = (int)command.ExecuteScalar();
 
@@ -131,10 +131,10 @@ namespace _03_AddMinion
 
         private static void AddVillainToDatabase(string villainName, SqlConnection connection)
         {
-            string insertTown = "INSERT INTO Villains (VillainName, Evilness) " +
+            string addVillainToDbStr = "INSERT INTO Villains (VillainName, Evilness) " +
                                 "VALUES (@villainName, 'evil')";
 
-            SqlCommand command = new SqlCommand(insertTown, connection);
+            SqlCommand command = new SqlCommand(addVillainToDbStr, connection);
             command.Parameters.AddWithValue("@villainName", villainName);
             command.ExecuteNonQuery();
             Console.WriteLine($"Villain {villainName} was added to the database.");
@@ -142,12 +142,12 @@ namespace _03_AddMinion
 
         private static bool CheckIfVillainExists(string villainName, SqlConnection connection)
         {
-            string selectTownByName = "SELECT COUNT(*) " +
+            string checkVillainStr = "SELECT COUNT(*) " +
                                         "FROM Villains " +
                                        "WHERE VillainName = @villainName";
             int result = 0;
 
-            SqlCommand command = new SqlCommand(selectTownByName, connection);
+            SqlCommand command = new SqlCommand(checkVillainStr, connection);
             command.Parameters.AddWithValue("@villainName", villainName);
             result = (int)command.ExecuteScalar();
 
