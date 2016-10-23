@@ -48,15 +48,13 @@ namespace _04_ChangeTownNamesCasing
             command.Parameters.AddWithValue("@countryId", countryId);
 
             SqlDataReader reader = command.ExecuteReader();
-            reader.Read();
             string[] result = new string[townsCount];
             int index = 0;
-            result[index] = reader[0].ToString();
 
             while (reader.Read())
-            {
-                index++;
+            {        
                 result[index] = reader[0].ToString();
+                index++;
             }
 
             return result;
