@@ -56,6 +56,7 @@ namespace _04_ChangeTownNamesCasing
                 result[index] = reader[0].ToString();
                 index++;
             }
+            reader.Close();
 
             return result;
         }
