@@ -15,7 +15,7 @@
             var ctx = new SoftUniContext();
             using (ctx)
             {
-                var employees = ctx.Employees;
+                //var employees = ctx.Employees;
 
                 //03. Employees full information
                 /*foreach (var employee in employees)
@@ -56,24 +56,24 @@
                 //////////////////////////////////////////////////////
 
                 //06. Adding a New Address and Updating Employee
-                //var address = new Address();
-                //address.AddressText = "Vitoshka 15";
-                //address.TownID = 4;
+                var address = new Address();
+                address.AddressText = "Vitoshka 15";
+                address.TownID = 4;
 
-                //var employeeNakov = ctx.Employees.FirstOrDefault(e => e.LastName == "Nakov");
-                //employeeNakov.Address = address;
+                var employeeNakov = ctx.Employees.FirstOrDefault(e => e.LastName == "Nakov");
+                employeeNakov.Address = address;
 
-                //ctx.SaveChanges();
+                ctx.SaveChanges();
 
-                //var employeesAddresses = ctx.Addresses
-                //                            .OrderByDescending(e => e.AddressID)
-                //                            .Take(10)
-                //                            .Select(e => e.AddressText);
+                var employeesAddresses = ctx.Employees
+                                            .OrderByDescending(e => e.AddressID)
+                                            .Take(10)
+                                            .Select(e => e.Address.AddressText);
 
-                //foreach (var empAddress in employeesAddresses)
-                //{
-                //    Console.WriteLine(empAddress);
-                //}
+                foreach (var empAddress in employeesAddresses)
+                {
+                    Console.WriteLine(empAddress);
+                }
 
                 ///////////////////////////////////////////////////////////
 
@@ -116,14 +116,77 @@
                 ///////////////////////////////////////////////////////////
 
                 //09. Addresses by town name 
-                var addresses = ctx.Addresses
-                                    .OrderByDescending(a => a.Employees.Count())
-                                    .ThenBy(a => a.Town.Name)
-                                    .Take(10);
-                foreach (var addr in addresses)
-                {
-                    Console.WriteLine($"{addr.AddressText}, {addr.Town.Name} - {addr.Employees.Count()} employees");
-                }
+                //var addresses = ctx.Addresses
+                //                    .OrderByDescending(a => a.Employees.Count())
+                //                    .ThenBy(a => a.Town.Name)
+                //                    .Take(10);
+                //foreach (var addr in addresses)
+                //{
+                //    Console.WriteLine($"{addr.AddressText}, {addr.Town.Name} - {addr.Employees.Count()} employees");
+                //}
+
+                //////////////////////////////////////////////////////////
+
+                //10. Employee with id 147 sorted by project names 
+                //var emp147 = ctx.Employees.Find(147);
+
+                //Console.WriteLine($"{emp147.FirstName} {emp147.LastName} {emp147.JobTitle}");
+                //var projects = emp147.Projects.OrderBy(p => p.Name);
+
+                //foreach (var project in projects)
+                //{
+                //    Console.WriteLine($"{project.Name}");
+                //}
+
+                ////////////////////////////////////////////////////////////////////////////
+
+                //11. Departments with more than 5 employees
+                //var depWithMoreThan5Emps = ctx.Departments
+                //                                .Where(d => d.Employees.Count > 5)
+                //                                .OrderBy(d => d.Employees.Count);
+                //foreach (var department in depWithMoreThan5Emps)
+                //{
+                //    Console.WriteLine($"{department.Name} {department.Manager.FirstName}");
+                //    foreach (var emp in department.Employees)
+                //    {
+                //        Console.WriteLine($"{emp.FirstName} {emp.LastName} {emp.JobTitle}");
+                //    }
+                //}
+
+                ////////////////////////////////////////////////////////////////////////
+
+                //15. Find Latest 10 Projects
+                //var latestStarted10Projects = ctx.Projects
+                //                                    .OrderByDescending(p => p.StartDate)
+                //                                    .Take(10)
+                //                                    .OrderBy(p => p.Name);
+                //foreach (var project in latestStarted10Projects)
+                //{
+                //    Console.WriteLine($"{project.Name} {project.Description} {project.StartDate} {project.EndDate}");
+                //}
+
+                /////////////////////////////////////////////////////////////////////
+
+                //16. Increase Salaries
+                //var employees = ctx.Employees
+                //                    .Where(e => e.Department.Name == "Engineering" ||
+                //                                e.Department.Name == "Tool Design" ||
+                //                                e.Department.Name == "Marketing" ||
+                //                                e.Department.Name == "Information Services");
+                //foreach (var employee in employees)
+                //{
+                //    employee.Salary += employee.Salary * (decimal)0.12;
+                //    Console.WriteLine($"{employee.FirstName} {employee.LastName} (${employee.Salary})");
+                //}
+                //ctx.SaveChanges();
+
+                //18. Find Employees by First Name starting with ‘SA’
+                //var employeesStartingWithSA = ctx.Employees.Where(e => e.FirstName.Substring(0, 2) == "Sa");
+
+                //foreach (var employee in employeesStartingWithSA)
+                //{
+                //    Console.WriteLine($"{employee.FirstName} {employee.LastName} - {employee.JobTitle} - (${employee.Salary})");
+                //}
             }
         }
     }
