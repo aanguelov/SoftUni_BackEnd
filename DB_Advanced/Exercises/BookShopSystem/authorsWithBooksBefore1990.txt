@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<authors>
+  <author name="Roger Porter">
+    <books>
+      <book title="Death Be Not Proud" price="38.64" />
+      <book title="East of Eden" price="45.43" />
+    </books>
+  </author>
+  <author name="Louis Coleman">
+    <books>
+      <book title="Recalled to Life" price="18.41" />
+    </books>
+  </author>
+  <author name="Lisa Davis">
+    <books>
+      <book title="Those Barren Leaves" price="33.81" />
+    </books>
+  </author>
+  <author name="Christina Jordan">
+    <books>
+      <book title="The Little Foxes" price="24.00" />
+    </books>
+  </author>
+  <author name="Stephen Warren">
+    <books>
+      <book title="Tirra Lirra by the River" price="2.21" />
+    </books>
+  </author>
+  <author name="Rachel Hunter">
+    <books>
+      <book title="The Road Less Traveled" price="11.27" />
+    </books>
+  </author>
+  <author name="Gloria Chavez">
+    <books>
+      <book title="Tiger! Tiger!" price="11.42" />
+    </books>
+  </author>
+  <author name="Julie Washington">
+    <books>
+      <book title="Consider the Lilies" price="30.89" />
+      <book title="The Curious Incident of the Dog in the Night-Time" price="23.41" />
+    </books>
+  </author>
+  <author name="Amanda Rice">
+    <books>
+      <book title="Infinite Jest" price="11.69" />
+      <book title="To Say Nothing of the Dog" price="8.88" />
+    </books>
+  </author>
+  <author name="Deborah Nichols">
+    <books>
+      <book title="Bury My Heart at Wounded Knee" price="3.86" />
+    </books>
+  </author>
+  <author name="Wanda Morales">
+    <books>
+      <book title="A Fanatic Heart" price="9.41" />
+    </books>
+  </author>
+  <author name="Norma Scott">
+    <books>
+      <book title="The Other Side of Silence" price="46.26" />
+      <book title="Paths of Glory" price="45.67" />
+    </books>
+  </author>
+</authors>

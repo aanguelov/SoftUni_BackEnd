@@ -1,10 +1,12 @@
 ﻿namespace BookShopSystem.ConsoleClient
 {
     using Data;
+    using Models;
     using System;
     using System.Globalization;
     using System.Linq;
     using System.Threading;
+    using System.Xml.Linq;
 
     public class ConsoleClient
     {
@@ -23,27 +25,82 @@
 
                 //GetBooksFromRogerPorter(ctx);
 
-                GetMostRecentBooksByCategory(ctx);
+                //GetMostRecentBooksByCategory(ctx);
 
-                //var relatedBooks = ctx.Books.Select(b => new
-                //{
-                //    b.Title,
-                //    RelatedBooksTitles = b.RelatedBooks.Select(rb => new
-                //    {
-                //        rb.Title
-                //    })
-                //}).Take(3);
+                //ExportBooksAsXml(ctx);
 
-                //foreach (var book in relatedBooks)
-                //{
-                //    Console.WriteLine($"--{book.Title}");
-                //    foreach (var related in book.RelatedBooksTitles)
-                //    {
-                //        Console.WriteLine(related.Title);
-                //    }
-                //}
+                //ExtractAuthorsWithTheirBooksXml(ctx);
+
+                var relatedBooks = ctx.Books.Select(b => new
+                {
+                    b.Title,
+                    RelatedBooksTitles = b.RelatedBooks.Select(rb => new
+                    {
+                        rb.Title
+                    })
+                }).Take(3);
+
+                foreach (var book in relatedBooks)
+                {
+                    Console.WriteLine($"--{book.Title}");
+                    foreach (var related in book.RelatedBooksTitles)
+                    {
+                        Console.WriteLine(related.Title);
+                    }
+                }
 
             }
+        }
+
+        private static void ExtractAuthorsWithTheirBooksXml(BookShopContext ctx)
+        {
+            var authors = ctx.Authors
+                                .Where(a => a.Books.Count(b => b.ReleaseDate.Value.Year < 1990) > 0)
+                                .Select(a => new
+                                {
+                                    FullName = a.FirstName + " " + a.LastName,
+                                    Books = a.Books.Where(b => b.ReleaseDate.Value.Year < 1990).Select(b => new
+                                    {
+                                        b.Title,
+                                        b.Price
+                                    })
+                                })
+                                .ToList();
+
+            var authorWithBooksXml = new XElement("authors",
+                    from author in authors
+                    select new XElement("author",
+                        new XAttribute("name", author.FullName),
+                        new XElement("books",
+                            from book in author.Books
+                            select new XElement("book", 
+                                new XAttribute("title", book.Title), 
+                                new XAttribute("price", book.Price)
+                            )
+                        )
+                    )
+                );
+            authorWithBooksXml.Save("../../../authorsWithBooksBefore1990.txt");
+        }
+
+        private static void ExportBooksAsXml(BookShopContext ctx)
+        {
+            var books = ctx.Books
+                            .Where(b => b.AgeRestriction == AgeRestriction.Minor)
+                            .Select(b => new
+                            {
+                                Author = b.Author.FirstName + " " + b.Author.LastName,
+                                b.Title
+                            })
+                            .ToList();
+            var booksToXml = new XElement("kidsBooks",
+                    from book in books
+                    select new XElement("book",
+                        new XElement("author", book.Author),
+                        new XElement("title", book.Title)
+                    )
+                );
+            booksToXml.Save("../../../kidsBooks.txt");
         }
 
         private static void GetMostRecentBooksByCategory(BookShopContext ctx)

@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kidsBooks>
+  <book>
+    <author>Amy Porter</author>
+    <title>A che punto Ã¨ la notte</title>
+  </book>
+  <book>
+    <author>Amy Porter</author>
+    <title>After Many a Summer Dies the Swan</title>
+  </book>
+  <book>
+    <author>Amy Porter</author>
+    <title>Ah</title>
+  </book>
+  <book>
+    <author>Brenda Griffin</author>
+    <title>All the King's Men</title>
+  </book>
+  <book>
+    <author>Brenda Griffin</author>
+    <title>Alone on a Wide</title>
+  </book>
+  <book>
+    <author>Rachel Hunter</author>
+    <title>An Evil Cradling</title>
+  </book>
+  <book>
+    <author>Rachel Hunter</author>
+    <title>Arms and the Man</title>
+  </book>
+  <book>
+    <author>Rachel Hunter</author>
+    <title>Behold the Man</title>
+  </book>
+  <book>
+    <author>Deborah Nichols</author>
+    <title>Blue Remembered Earth</title>
+  </book>
+  <book>
+    <author>Deborah Nichols</author>
+    <title>Bonjour Tristesse</title>
+  </book>
+  <book>
+    <author>Deborah Nichols</author>
+    <title>Butter In a Lordly Dish</title>
+  </book>
+  <book>
+    <author>Deborah Nichols</author>
+    <title>By Grand Central Station I Sat Down and Wept</title>
+  </book>
+  <book>
+    <author>Deborah Nichols</author>
+    <title>Carrion Comfort</title>
+  </book>
+  <book>
+    <author>Julie Washington</author>
+    <title>Clouds of Witness</title>
+  </book>
+  <book>
+    <author>Julie Washington</author>
+    <title>A Confederacy of Dunces</title>
+  </book>
+  <book>
+    <author>Julie Washington</author>
+    <title>Consider the Lilies</title>
+  </book>
+  <book>
+    <author>Julie Washington</author>
+    <title>Dance Dance Dance</title>
+  </book>
+  <book>
+    <author>Roger Porter</author>
+    <title>Dulce et Decorum Est</title>
+  </book>
+  <book>
+    <author>Roger Porter</author>
+    <title>Everything is Illuminated</title>
+  </book>
+  <book>
+    <author>Wanda Morales</author>
+    <title>Fair Stood the Wind for France</title>
+  </book>
+  <book>
+    <author>Wanda Morales</author>
+    <title>Fame Is the Spur</title>
+  </book>
+  <book>
+    <author>Wanda Morales</author>
+    <title>A Farewell to Arms</title>
+  </book>
+  <book>
+    <author>Wanda Morales</author>
+    <title>Far From the Madding Crowd</title>
+  </book>
+  <book>
+    <author>Wanda Morales</author>
+    <title>Fear and Trembling</title>
+  </book>
+  <book>
+    <author>Wanda Morales</author>
+    <title>For a Breath I Tarry</title>
+  </book>
+  <book>
+    <author>Lisa Davis</author>
+    <title>For Whom the Bell Tolls</title>
+  </book>
+  <book>
+    <author>Lisa Davis</author>
+    <title>The Golden Bowl</title>
+  </book>
+  <book>
+    <author>Lisa Davis</author>
+    <title>Gone with the Wind</title>
+  </book>
+  <book>
+    <author>Gloria Chavez</author>
+    <title>A Handful of Dust</title>
+  </book>
+  <book>
+    <author>Gloria Chavez</author>
+    <title>Have His Carcase</title>
+  </book>
+  <book>
+    <author>Gloria Chavez</author>
+    <title>The Heart Is a Lonely Hunter</title>
+  </book>
+  <book>
+    <author>Gloria Chavez</author>
+    <title>The Heart Is Deceitful Above All Things</title>
+  </book>
+  <book>
+    <author>Stephen Warren</author>
+    <title>How Sleep the Brave</title>
+  </book>
+  <book>
+    <author>Stephen Warren</author>
+    <title>I Sing the Body Electric</title>
+  </book>
+  <book>
+    <author>Stephen Warren</author>
+    <title>I Will Fear No Evil</title>
+  </book>
+  <book>
+    <author>Amanda Rice</author>
+    <title>If I Forget Thee Jerusalem</title>
+  </book>
+  <book>
+    <author>Amanda Rice</author>
+    <title>In a Glass Darkly</title>
+  </book>
+  <book>
+    <author>Frances Ross</author>
+    <title>Jacob Have I Loved</title>
+  </book>
+  <book>
+    <author>Beverly Ford</author>
+    <title>The Last Temptation</title>
+  </book>
+  <book>
+    <author>Beverly Ford</author>
+    <title>The Lathe of Heaven</title>
+  </book>
+  <book>
+    <author>Christina Jordan</author>
+    <title>The Little Foxes</title>
+  </book>
+  <book>
+    <author>Jane Ortiz</author>
+    <title>The Man Within</title>
+  </book>
+  <book>
+    <author>Jane Ortiz</author>
+    <title>The Millstone</title>
+  </book>
+  <book>
+    <author>Jane Ortiz</author>
+    <title>The Mirror Crack'd from Side to Side</title>
+  </book>
+  <book>
+    <author>Randy Graham</author>
+    <title>Moab Is My Washpot</title>
+  </book>
+  <book>
+    <author>Randy Graham</author>
+    <title>A Monstrous Regiment of Women</title>
+  </book>
+  <book>
+    <author>Paul Scott</author>
+    <title>The Moon by Night</title>
+  </book>
+  <book>
+    <author>Paul Scott</author>
+    <title>Mother Night</title>
+  </book>
+  <book>
+    <author>Paul Scott</author>
+    <title>The Moving Toyshop</title>
+  </book>
+  <book>
+    <author>Paul Scott</author>
+    <title>Nectar in a Sieve</title>
+  </book>
+  <book>
+    <author>Chris Graham</author>
+    <title>No Country for Old Men</title>
+  </book>
+  <book>
+    <author>Chris Graham</author>
+    <title>No Highway</title>
+  </book>
+  <book>
+    <author>Jeffrey Snyder</author>
+    <title>No Longer at Ease</title>
+  </book>
+  <book>
+    <author>Jeffrey Snyder</author>
+    <title>Of Human Bondage</title>
+  </book>
+  <book>
+    <author>Norma Scott</author>
+    <title>Pale Kings and Princes</title>
+  </book>
+  <book>
+    <author>Brenda Griffin</author>
+    <title>Precious Bane</title>
+  </book>
+  <book>
+    <author>Louis Coleman</author>
+    <title>Recalled to Life</title>
+  </book>
+  <book>
+    <author>Rachel Hunter</author>
+    <title>The Skull Beneath the Skin</title>
+  </book>
+  <book>
+    <author>Deborah Nichols</author>
+    <title>The Stars' Tennis Balls</title>
+  </book>
+  <book>
+    <author>Julie Washington</author>
+    <title>Stranger in a Strange Land</title>
+  </book>
+  <book>
+    <author>Julie Washington</author>
+    <title>Such</title>
+  </book>
+  <book>
+    <author>Julie Washington</author>
+    <title>A Summer Bird-Cage</title>
+  </book>
+  <book>
+    <author>Roger Porter</author>
+    <title>The Sun Also Rises</title>
+  </book>
+  <book>
+    <author>Roger Porter</author>
+    <title>Surprised by Joy</title>
+  </book>
+  <book>
+    <author>Roger Porter</author>
+    <title>Taming a Sea Horse</title>
+  </book>
+  <book>
+    <author>Wanda Morales</author>
+    <title>Tender Is the Night</title>
+  </book>
+  <book>
+    <author>Lisa Davis</author>
+    <title>Those Barren Leaves</title>
+  </book>
+  <book>
+    <author>Lisa Davis</author>
+    <title>Thrones</title>
+  </book>
+  <book>
+    <author>Gloria Chavez</author>
+    <title>Dominations</title>
+  </book>
+  <book>
+    <author>Frances Ross</author>
+    <title>Unweaving the Rainbow</title>
+  </book>
+  <book>
+    <author>Frances Ross</author>
+    <title>Vile Bodies</title>
+  </book>
+  <book>
+    <author>Beverly Ford</author>
+    <title>The Violent Bear It Away</title>
+  </book>
+  <book>
+    <author>Christina Jordan</author>
+    <title>The Way Through the Woods</title>
+  </book>
+</kidsBooks>
