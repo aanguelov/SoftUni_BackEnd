@@ -2,18 +2,19 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class User
     {
         private ICollection<User> userFriends;
         private ICollection<Product> boughtProducts;
-        private ICollection<Product> productsForSale;
+        private ICollection<Product> sellerProducts;
 
         public User()
         {
             this.userFriends = new HashSet<User>();
             this.boughtProducts = new HashSet<Product>();
-            this.productsForSale = new HashSet<Product>();
+            this.sellerProducts = new HashSet<Product>();
         }
 
         [Key]
@@ -39,10 +40,10 @@
             set { this.boughtProducts = value; }
         }
 
-        public virtual ICollection<Product> ProductsForSale
+        public virtual ICollection<Product> SellerProducts
         {
-            get { return this.productsForSale; }
-            set { this.productsForSale = value; }
+            get { return this.sellerProducts; }
+            set { this.sellerProducts = value; }
         }
     }
 }

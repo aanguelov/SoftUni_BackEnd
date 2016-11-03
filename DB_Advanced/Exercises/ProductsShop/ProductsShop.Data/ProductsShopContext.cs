@@ -33,17 +33,22 @@ namespace ProductsShop.Data
             // This sets OnCascadeDelete to false only for the 'Product' entity.
             modelBuilder.Entity<Product>()
                 .HasRequired(p => p.Seller)
-                .WithMany(u => u.ProductsForSale)
+                .WithMany(u => u.SellerProducts)
                 .HasForeignKey(p => p.SellerId)
                 .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<Product>()
+            //    .HasOptional(p => p.Buyer)
+            //    .WithMany(u => u.SoldProducts)
+            //    .HasForeignKey(p => p.BuyerId);
 
             modelBuilder.Entity<User>()
                 .Property(u => u.Age)
                 .IsOptional();
 
-            modelBuilder.Entity<Product>()
-                .Property(p => p.BuyerId)
-                .IsOptional();
+            //modelBuilder.Entity<Product>()
+            //    .Property(p => p.BuyerId)
+            //    .IsOptional();
 
             // This will remove the convention globally
             //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();

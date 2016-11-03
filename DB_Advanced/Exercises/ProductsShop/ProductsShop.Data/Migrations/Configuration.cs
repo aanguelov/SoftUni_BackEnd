@@ -15,6 +15,7 @@ namespace ProductsShop.Data.Migrations
         public Configuration()
         {
             this.AutomaticMigrationsEnabled = true;
+            this.AutomaticMigrationDataLossAllowed = true;
             this.ContextKey = "ProductsShop.Data.ProductsShopContext";
         }
 
@@ -46,8 +47,10 @@ namespace ProductsShop.Data.Migrations
             if (!context.Categories.Any())
             {
                 this.AddCategoriesToDatabase(context);
-                this.RandomlyConnectCategoriesToProducts(context);
+                
             }
+            //this.RandomlyConnectCategoriesToProducts(context);
+
         }
 
         private void RandomlyConnectCategoriesToProducts(ProductsShopContext context)
@@ -98,7 +101,7 @@ namespace ProductsShop.Data.Migrations
                 var json = reader.ReadToEnd();
                 var serializer = new JavaScriptSerializer();
                 Random random = new Random();
-                var users = context.Users.ToArray();
+                var users = context.Users.ToList();
 
                 var products = serializer.Deserialize<List<Product>>(json);
 
@@ -111,7 +114,7 @@ namespace ProductsShop.Data.Migrations
 
                     var userIndexBuyer = random.Next(0 - users.Count() / 2, users.Count());
 
-                    if (userIndexBuyer > 0)
+                    if (userIndexBuyer > 0 && userIndexBuyer != userIndexSeller)
                     {
                         product.BuyerId = users[userIndexBuyer].Id;
                     }

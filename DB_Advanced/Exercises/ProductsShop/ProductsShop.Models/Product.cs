@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class Product
     {
@@ -27,6 +28,7 @@
         [Required]
         public int SellerId { get; set; }
 
+        [InverseProperty("BoughtProducts")]
         public virtual User Buyer { get; set; }
 
         public virtual User Seller { get; set; }
