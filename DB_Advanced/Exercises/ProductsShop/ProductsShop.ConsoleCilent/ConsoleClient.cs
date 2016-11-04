@@ -7,6 +7,7 @@
     using System.Xml.Linq;
     using Newtonsoft.Json;
     using System.IO;
+    using System.Collections.Generic;
 
     public class ConsoleClient
     {
@@ -65,7 +66,60 @@
                     )
                 );
 
+            RenameAttributes(usersWithProductsXml);
+
             usersWithProductsXml.Save("../../users-and-products.xml");
+        }
+
+        private static void RenameAttributes(XElement usersWithProductsXml)
+        {
+            foreach (var user in usersWithProductsXml.Elements("user"))
+            {
+                var attributes = user.Attributes().ToList();
+                if (attributes.Count == 3)
+                {
+                    var newAttributes = new List<XAttribute>
+                    {
+                        new XAttribute("first-name", attributes[0].Value),
+                        new XAttribute("last-name", attributes[1].Value),
+                        new XAttribute("age", attributes[2].Value)
+                    };
+
+                    user.ReplaceAttributes(newAttributes);
+                }
+
+                if (attributes.Count == 2 && attributes[0].Name == "firstname")
+                {
+                    var newAttributes = new List<XAttribute>
+                    {
+                        new XAttribute("first-name", attributes[0].Value),
+                        new XAttribute("last-name", attributes[1].Value)
+                    };
+
+                    user.ReplaceAttributes(newAttributes);
+                }
+
+                if (attributes.Count == 2 && attributes[0].Name == "lastname")
+                {
+                    var newAttributes = new List<XAttribute>
+                    {
+                        new XAttribute("last-name", attributes[0].Value),
+                        new XAttribute("age", attributes[1].Value)
+                    };
+
+                    user.ReplaceAttributes(newAttributes);
+                }
+
+                if (attributes.Count == 1)
+                {
+                    var newAttributes = new List<XAttribute>
+                    {
+                        new XAttribute("last-name", attributes[0].Value)
+                    };
+
+                    user.ReplaceAttributes(newAttributes);
+                }
+            }
         }
 
         private static void GetCategoriesByProductCount(ProductsShopContext ctx)

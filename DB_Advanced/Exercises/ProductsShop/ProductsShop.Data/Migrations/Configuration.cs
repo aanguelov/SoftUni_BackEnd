@@ -10,46 +10,26 @@ namespace ProductsShop.Data.Migrations
     using System.Web.Script.Serialization;
     using System.Collections.Generic;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ProductsShopContext>
+    internal sealed class Configuration : DropCreateDatabaseIfModelChanges<ProductsShopContext>
     {
-        public Configuration()
-        {
-            this.AutomaticMigrationsEnabled = true;
-            this.AutomaticMigrationDataLossAllowed = true;
-            this.ContextKey = "ProductsShop.Data.ProductsShopContext";
-        }
+        //public Configuration()
+        //{
+        //    this.AutomaticMigrationsEnabled = true;
+        //    this.AutomaticMigrationDataLossAllowed = true;
+        //    this.ContextKey = "ProductsShop.Data.ProductsShopContext";
+        //}
 
         protected override void Seed(ProductsShopContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            this.AddUsersToDatabase(context);
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            this.AddProductsToDatabase(context);
 
-            if (!context.Users.Any())
-            {
-                this.AddUsersToDatabase(context);
-            }
+            this.AddCategoriesToDatabase(context);
 
-            if (!context.Products.Any())
-            {
-                this.AddProductsToDatabase(context);
-            }
+            this.RandomlyConnectCategoriesToProducts(context);
 
-            if (!context.Categories.Any())
-            {
-                this.AddCategoriesToDatabase(context);
-                
-            }
-            //this.RandomlyConnectCategoriesToProducts(context);
+            base.Seed(context);
 
         }
 
@@ -76,6 +56,8 @@ namespace ProductsShop.Data.Migrations
                     }
                 }
             }
+
+            context.SaveChanges();
         }
 
         private void AddCategoriesToDatabase(ProductsShopContext context)
@@ -91,6 +73,8 @@ namespace ProductsShop.Data.Migrations
                 {
                     context.Categories.Add(category);
                 }
+
+                context.SaveChanges();
             }
         }
 
@@ -121,6 +105,8 @@ namespace ProductsShop.Data.Migrations
 
                     context.Products.Add(product);
                 }
+
+                context.SaveChanges();
             }
         }
 
@@ -151,6 +137,8 @@ namespace ProductsShop.Data.Migrations
 
                 context.Users.Add(userToAdd);
             }
+
+            context.SaveChanges();
         }
     }
 }

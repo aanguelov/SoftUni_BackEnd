@@ -9,7 +9,7 @@ namespace ProductsShop.Data
         public ProductsShopContext()
             : base("name=ProductsShopContext")
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ProductsShopContext, Configuration>());
+            Database.SetInitializer(new Configuration());
         }
 
         public IDbSet<User> Users { get; set; }
