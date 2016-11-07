@@ -24,7 +24,79 @@ namespace Football
 
             //ExportInternationalMatches(ctx);
 
-            ImportLeaguesAndTeamsFromXml(ctx);
+            //ImportLeaguesAndTeamsFromXml(ctx);
+
+            //GenerateRandomMatches(ctx);
+        }
+
+        private static void GenerateRandomMatches(FootballEntities ctx)
+        {
+            var document = XDocument.Load("../../data/generate-matches.xml");
+            var generators = document.Root.Elements();
+
+            var requestCount = 1;
+
+            foreach (var generator in generators)
+            {
+                Console.WriteLine($"Processing request #{requestCount} ...");
+
+                var generateCount = generator.Attribute("generate-count") != null ? int.Parse(generator.Attribute("generate-count").Value) : 10;
+
+                var maxGoals = generator.Attribute("max-goals") != null ? int.Parse(generator.Attribute("max-goals").Value) : 5;
+
+                var leagueName = generator.Element("league") != null ? generator.Element("league").Value : "no league";
+
+                var startDate = generator.Element("start-date") != null ? DateTime.Parse(generator.Element("start-date").Value) : new DateTime(2000, 1, 1);
+
+                var endDate = generator.Element("end-date") != null ? DateTime.Parse(generator.Element("end-date").Value) : new DateTime(2015, 12, 31);
+                var daysRange = (endDate - startDate).Days;
+
+                var teams = ctx.Teams.Select(t => t.TeamName).ToArray();
+
+                if (leagueName != "no league")
+                {
+                    teams = ctx.Leagues
+                        .First(l => l.LeagueName == leagueName)
+                        .Teams
+                        .Select(t => t.TeamName)
+                        .ToArray();
+                }
+
+                var teamsCount = teams.Count();
+                var rand = new Random();
+
+                for (int i = 0; i < generateCount; i++)
+                {
+                    var matchDate = startDate.AddDays(rand.Next(daysRange));
+                    var homeIndex = rand.Next(0, teamsCount/2);
+                    var awayIndex = rand.Next(teamsCount / 2, teamsCount);
+                    var homeGoals = rand.Next(0, maxGoals + 1);
+                    var awayGoals = rand.Next(0, maxGoals + 1);
+
+                    var homeTeamName = teams[homeIndex];
+                    var awayTeamName = teams[awayIndex];
+
+                    var newTeamMatch = new TeamMatch
+                    {
+                        HomeTeamId = ctx.Teams.First(t => t.TeamName == homeTeamName).Id,
+                        AwayTeamId = ctx.Teams.First(t => t.TeamName == awayTeamName).Id,
+                        HomeGoals = homeGoals,
+                        AwayGoals = awayGoals,
+                        MatchDate = matchDate
+                    };
+                    if (ctx.Leagues.FirstOrDefault(l => l.LeagueName == leagueName) != null)
+                    {
+                        newTeamMatch.LeagueId = ctx.Leagues.FirstOrDefault(l => l.LeagueName == leagueName).Id;
+                    }
+
+                    ctx.TeamMatches.Add(newTeamMatch);
+                    ctx.SaveChanges();
+
+                    Console.WriteLine($"{matchDate}: {teams[homeIndex]} - {teams[awayIndex]}: {homeGoals}-{awayGoals} ({leagueName})");
+                }
+
+                requestCount++;
+            }
         }
 
         private static void ImportLeaguesAndTeamsFromXml(FootballEntities ctx)
