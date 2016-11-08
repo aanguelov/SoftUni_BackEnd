@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photography", "Photography\Photography.csproj", "{3B381D6B-9EC2-4D98-9CDB-5E5E4856D66D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phonebook", "Phonebook\Phonebook.csproj", "{5BDC7128-C5CA-466E-B6FE-64C05C3AC04F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B381D6B-9EC2-4D98-9CDB-5E5E4856D66D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B381D6B-9EC2-4D98-9CDB-5E5E4856D66D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B381D6B-9EC2-4D98-9CDB-5E5E4856D66D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B381D6B-9EC2-4D98-9CDB-5E5E4856D66D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BDC7128-C5CA-466E-B6FE-64C05C3AC04F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BDC7128-C5CA-466E-B6FE-64C05C3AC04F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BDC7128-C5CA-466E-B6FE-64C05C3AC04F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BDC7128-C5CA-466E-B6FE-64C05C3AC04F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
