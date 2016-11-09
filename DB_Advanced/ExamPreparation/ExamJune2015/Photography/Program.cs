@@ -1,15 +1,12 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace Photography
+﻿namespace Photography
 {
-    class Program
+    using Newtonsoft.Json;
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Xml.Linq;
+
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -22,6 +19,50 @@ namespace Photography
             //ExportPhotographsAsXml(ctx);
 
             //ImportManufacturersAndLensesFromXml(ctx);
+
+            //GenerateRandomEquipment(ctx);
+        }
+
+        private static void GenerateRandomEquipment(PhotographySystemEntities ctx)
+        {
+            var file = XDocument.Load("../../imported/generate-equipments.xml");
+            var generations = file.Root.Elements();
+
+            var request = 1;
+            var rand = new Random();
+            foreach (var generate in generations)
+            {
+                Console.WriteLine($"Processing request #{request} ...");
+
+                var generateCount = generate.Attribute("generate-count") != null ? int.Parse(generate.Attribute("generate-count").Value) : 10;
+                var manufacturerName = generate.Element("manufacturer") != null ? generate.Element("manufacturer").Value : "Nikon";
+
+                var camerasFromManufacturer = ctx.Cameras.Where(c => c.Manufacturer.Name == manufacturerName).ToList();
+                var camerasCount = camerasFromManufacturer.Count();
+                var lensesFromManufacturer = ctx.Lenses.Where(l => l.Manufacturer.Name == manufacturerName).ToList();
+                var lensesCount = lensesFromManufacturer.Count();
+
+                for (int i = 0; i < generateCount; i++)
+                {
+                    var cameraIndex = rand.Next(0, camerasCount);
+                    var cameraId = camerasFromManufacturer[cameraIndex].Id;
+
+                    var lensIndex = rand.Next(0, lensesCount);
+                    var lensId = lensesFromManufacturer[lensIndex].Id;
+
+                    var newEquipment = new Equipment
+                    {
+                        CameraId = cameraId,
+                        LensId = lensId
+                    };
+
+                    ctx.Equipments.Add(newEquipment);
+                    ctx.SaveChanges();
+                    Console.WriteLine($"Equipment added: {manufacturerName} (Camera: {newEquipment.Camera.Model} - Lens: {newEquipment.Lens.Model})");
+                }
+
+                request++;
+            }
         }
 
         private static void ImportManufacturersAndLensesFromXml(PhotographySystemEntities ctx)

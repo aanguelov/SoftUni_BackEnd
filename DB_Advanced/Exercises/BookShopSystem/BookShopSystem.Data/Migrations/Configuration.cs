@@ -32,7 +32,30 @@ namespace BookShopSystem.Data.Migrations
             {
                 this.AddBooksToDatabase(context);
                 this.RandomlyAddCategoriesToBook(context);
+                this.RandomlyRelateBooks(context);
             }
+
+            base.Seed(context);
+        }
+
+        private void RandomlyRelateBooks(BookShopContext context)
+        {
+            var rand = new Random();
+            var booksCount = context.Books.Count();
+
+            for (int i = 0; i < 30; i++)
+            {
+                var bookId = rand.Next(1, booksCount);
+                var relatedBookId = rand.Next(1, booksCount);
+
+                if (bookId != relatedBookId)
+                {
+                    context.Books.Find(bookId).RelatedBooks.Add(context.Books.Find(relatedBookId));
+                    context.Books.Find(relatedBookId).RelatedBooks.Add(context.Books.Find(bookId));
+                }
+            }
+
+            context.SaveChanges();
         }
 
         private void RandomlyAddCategoriesToBook(BookShopContext context)
@@ -51,6 +74,8 @@ namespace BookShopSystem.Data.Migrations
                     }
                 }
             }
+
+            context.SaveChanges();
         }
 
         private void AddBooksToDatabase(BookShopContext context)
@@ -89,6 +114,8 @@ namespace BookShopSystem.Data.Migrations
 
                     line = reader.ReadLine();
                 }
+
+                context.SaveChanges();
             }
         }
 
@@ -110,6 +137,8 @@ namespace BookShopSystem.Data.Migrations
 
                     line = reader.ReadLine();
                 }
+
+                context.SaveChanges();
             }
         }
 
@@ -133,6 +162,8 @@ namespace BookShopSystem.Data.Migrations
 
                     line = reader.ReadLine();
                 }
+
+                context.SaveChanges();
             }
         }
     }

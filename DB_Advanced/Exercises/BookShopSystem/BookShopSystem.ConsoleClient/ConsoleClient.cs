@@ -31,14 +31,17 @@
 
                 //ExtractAuthorsWithTheirBooksXml(ctx);
 
-                var relatedBooks = ctx.Books.Select(b => new
-                {
-                    b.Title,
-                    RelatedBooksTitles = b.RelatedBooks.Select(rb => new
+                var relatedBooks = ctx.Books
+                    .Where(b => b.RelatedBooks.Count > 0)
+                    .Select(b => new
                     {
-                        rb.Title
+                        b.Title,
+                        RelatedBooksTitles = b.RelatedBooks.Select(rb => new
+                        {
+                            rb.Title
+                        })
                     })
-                }).Take(3);
+                    .OrderByDescending(b => b.RelatedBooksTitles.Count());
 
                 foreach (var book in relatedBooks)
                 {

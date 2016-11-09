@@ -8,6 +8,7 @@
     using System.IO;
     using System.Linq;
     using System.Threading;
+    using System.Xml.Linq;
 
     class Program
     {
@@ -20,10 +21,6 @@
             //ListChannelsWithMessages(ctx);
 
             //ImportMessagesFromJson(ctx);
-
-            var nakov = ctx.Users.FirstOrDefault(u => u.Username == "Nakov");
-            var messages = nakov.SentMessages;
-            Console.WriteLine();
         }
 
         private static void ImportMessagesFromJson(PhonebookContext ctx)
