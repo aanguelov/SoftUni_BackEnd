@@ -1,0 +1,32 @@
+[
+  {
+    "username": "pblacko",
+    "ratedMovies": [
+      {
+        "title": "Annie Hall (1977)",
+        "userRating": 9,
+        "averageRating": 8.25
+      },
+      {
+        "title": "Monty Python and the Holy Grail (1975)",
+        "userRating": 9,
+        "averageRating": 6.2857142857142856
+      },
+      {
+        "title": "The Big Sleep (1946)",
+        "userRating": 4,
+        "averageRating": 5.0
+      },
+      {
+        "title": "There Will Be Blood (2007)",
+        "userRating": 5,
+        "averageRating": 5.5
+      },
+      {
+        "title": "Unforgiven (1992)",
+        "userRating": 1,
+        "averageRating": 5.2857142857142856
+      }
+    ]
+  }
+]

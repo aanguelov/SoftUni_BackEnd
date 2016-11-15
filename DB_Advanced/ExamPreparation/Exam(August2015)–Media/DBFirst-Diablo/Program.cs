@@ -26,7 +26,7 @@
 
         private static void ImportUsersAndTheirGames(DiabloEntities ctx)
         {
-            var file = XDocument.Load("../../data/users-and-games.xml");
+            var file = XDocument.Load("../../../data/users-and-games.xml");
             var usersToImport = file.Root.Elements();
 
             foreach (var user in usersToImport)
