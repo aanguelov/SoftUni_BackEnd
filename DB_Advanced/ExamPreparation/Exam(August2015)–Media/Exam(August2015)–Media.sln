@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportAdultMovies", "Export
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RatedMoviesByUser", "RatedMoviesByUser\RatedMoviesByUser.csproj", "{1B45CA13-5AF9-491D-AD8A-622A55ACEBFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Top10FavouriteMovies", "Top10FavouriteMovies\Top10FavouriteMovies.csproj", "{0268D413-9142-4478-93CA-A95CFABF2BE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{1B45CA13-5AF9-491D-AD8A-622A55ACEBFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B45CA13-5AF9-491D-AD8A-622A55ACEBFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B45CA13-5AF9-491D-AD8A-622A55ACEBFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0268D413-9142-4478-93CA-A95CFABF2BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0268D413-9142-4478-93CA-A95CFABF2BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0268D413-9142-4478-93CA-A95CFABF2BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0268D413-9142-4478-93CA-A95CFABF2BE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

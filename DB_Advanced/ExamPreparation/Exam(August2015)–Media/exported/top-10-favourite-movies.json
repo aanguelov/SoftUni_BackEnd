@@ -1,0 +1,104 @@
+[
+  {
+    "isbn": "660097222-X",
+    "title": "Prisoners (2013)",
+    "favouritedBy": [
+      "tgrant4",
+      "tmurphy1",
+      "mgeorgeh",
+      "dburket",
+      "bhamilton1n",
+      "ksims1s"
+    ]
+  },
+  {
+    "isbn": "653288544-4",
+    "title": "Amores Perros (2000)",
+    "favouritedBy": [
+      "tgrant4",
+      "jhowarda",
+      "tmurphy1",
+      "tbennettb",
+      "jgibson1j"
+    ]
+  },
+  {
+    "isbn": "685416258-0",
+    "title": "Django Unchained (2012)",
+    "favouritedBy": [
+      "anichols18",
+      "djenkinsv",
+      "lelliottx",
+      "vnguyen1h",
+      "rcarr1u"
+    ]
+  },
+  {
+    "isbn": "292760458-4",
+    "title": "Million Dollar Baby (2004)",
+    "favouritedBy": [
+      "whernandezz",
+      "cbryant7",
+      "aandersonl",
+      "emartinez1d"
+    ]
+  },
+  {
+    "isbn": "643772842-6",
+    "title": "Raging Bull (1980)",
+    "favouritedBy": [
+      "prodriguezj",
+      "gmartin2",
+      "pblacko",
+      "bjohnson1p"
+    ]
+  },
+  {
+    "isbn": "913952331-4",
+    "title": "Scarface (1983)",
+    "favouritedBy": [
+      "pmoore0",
+      "jhughesp",
+      "along1f",
+      "amason1m"
+    ]
+  },
+  {
+    "isbn": "211868397-9",
+    "title": "The Hustler (1961)",
+    "favouritedBy": [
+      "drodriguezq",
+      "mbradleyu",
+      "pmorenow",
+      "amorgan17"
+    ]
+  },
+  {
+    "isbn": "790319651-0",
+    "title": "The Shining (1980)",
+    "favouritedBy": [
+      "tgrant4",
+      "malexanderf",
+      "mbradleyu",
+      "mking1t"
+    ]
+  },
+  {
+    "isbn": "818098605-5",
+    "title": "Goodfellas (1990)",
+    "favouritedBy": [
+      "rgibson1k",
+      "pblacko",
+      "dwest11"
+    ]
+  },
+  {
+    "isbn": "064553220-7",
+    "title": "La Strada (1954)",
+    "favouritedBy": [
+      "rwashingtonc",
+      "whernandezz",
+      "crussell1e"
+    ]
+  }
+]
